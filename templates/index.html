@@ -5,8 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GolangWebSite</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/5.0/examples/cover/cover.css">
 </head>
-<body>
-    <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores animi quae sit. Aliquid asperiores, saepe nulla perferendis, provident architecto cum autem tempore dolorum quibusdam deleniti dolore illo a necessitatibus veniam?</h1>
+<body class="d-flex h-100 text-center text-white bg-dark">
+    
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <div>
+          <h3 class="float-md-start mb-0">Egocomedis</h3>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link active" aria-current="page" href="/">Главная</a>
+            <a class="nav-link" href="/contacts/">Контакты</a>
+            <a class="nav-link" href="#">Про нас</a>
+          </nav>
+        </div>
+      </header>
+    
+      <main class="px-3">
+        <h1>Главная страница</h1>
+        <p class="lead">Пользователь: {{ .Name }}<br>Возраст: {{ .Age }}<br>Деньги: {{ .Money }}</p>
+
+        {{ if gt .Name "Bob" }}
+        <p class="lead">Ну привет!</p>
+        {{ else }}
+        <p class="lead">Ты кто?</p>
+        {{ end }}
+    
+        
+        {{ range .Hobbies }}
+            <p class="lead"><b>{{ . }}</b></p>
+        {{ else }}
+            <p class="lead"><b>У нас нет записей</b></p>
+        {{ end }}
+        
+
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Узнать больше</a>
+        </p>
+      </main>
+    
+      <footer class="mt-auto text-white-50">
+        <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+      </footer>
+    </div>
+    
+    
+        
+      
+    
+    <div class="betternet-wrapper"></div>
 </body>
 </html>
