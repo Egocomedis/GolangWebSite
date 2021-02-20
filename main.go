@@ -1,9 +1,7 @@
 package main
 
 
-import ("fmt"
-		"net/http"
-)
+import ( "fmt" ; "net/http" ; "html/template")
 
 //User is
 type User struct {
@@ -24,8 +22,10 @@ func (u *User) setNewName(newHame string) {
 
 func homePage(w http.ResponseWriter, r *http.Request) {
 	bob := User{"Bob", 25, -50, 4.2, 0.8}
-	bob.setNewName("Alex")
-	fmt.Fprint(w, bob.getAllInfo())
+	//bob.setNewName("Alex")
+	//fmt.Fprint(w, bob.getAllInfo())
+	tmpl, _ := template.ParseFiles("templates/index.html")
+	tmpl.Execute(w, bob)
 }
 
 func contactsPage(w http.ResponseWriter, r *http.Request) {
